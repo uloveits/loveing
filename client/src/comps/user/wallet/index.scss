@@ -1,0 +1,18 @@
+@import "../../../public/css/mixin";
+@import "../../../public/css/base";
+@import "~taro-ui/dist/style/components/flex.scss";
+
+.userCard {
+  //padding: 20px;
+}
+.card-self {
+  width: 100%;
+  border: 1px solid $color-primary;
+  background: $color-primary;
+}
+
+.avatar-large {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+}

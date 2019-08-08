@@ -1,0 +1,19 @@
+@import "../../../public/css/mixin";
+@import "../../../public/css/base";
+@import "~taro-ui/dist/style/components/flex.scss";
+
+.side-line {
+  border-left: 1px solid #F1F1F1;
+}
+
+.at-col-20 {
+  -webkit-flex: 0 0 20%;
+  -ms-flex: 0 0 20%;
+  flex: 0 0 20%;
+  -webkit-box-flex: 0;
+  max-width: 20%;
+}
+
+.image {
+  width: 32Px;
+}

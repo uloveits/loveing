@@ -1,0 +1,37 @@
+//******字体颜色变量******/
+$color-major: #FF6200;
+$color-primary: #CD919E;
+$color-primary-darken: darken($color-primary, 10%);
+$color-muted: #A3A3A3;
+$color-weak: #626E7A;
+$color-normal: #262626;
+$color-danger: #e33;
+$color-warn: #f85;
+$color-white: #fff;
+$color-black: #000;
+$color-red: #ff4949;
+$color-brand: #7A5330;
+$color-grey: #B0B0B0;
+$color-grey-darken: darken($color-grey, 5%);
+$color-blue: #1cbbb4;
+$color-ec: #ECECEC;
+$color-orange:#F7B824;
+
+
+//******字体大小变量******/
+$text-xxl: 34px;
+$text-xl: 32px;
+$text-nm: 28px;
+$text-lg: 30px;
+$text-sm: 26px;
+$text-xs: 24px;
+$text-xxs: 22px;
+$text-form: 17px;
+
+
+//******边框样式******/
+$color-border: #EDEDED;
+$color-line: #EEEEEE;
+$border: 1px solid $color-border;
+$border-line: 1px solid $color-line;
+$border-dot: 1px dotted #EFF0F2;

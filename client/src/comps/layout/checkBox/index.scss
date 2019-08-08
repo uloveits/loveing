@@ -1,0 +1,15 @@
+@import "~taro-ui/dist/style/components/checkbox.scss";
+@import "~taro-ui/dist/style/components/icon.scss";
+@import "../../../public/css/mixin";
+@import "../../../public/css/base";
+
+.at-checkbox-selected .at-checkbox__icon-cnt{
+  color:#fff;
+  border:none;
+  background-color:$color-primary;
+}
+.at-checkbox__icon-cnt {
+  border: 1px solid $color-primary !important;
+  margin: 0px !important;
+}
+

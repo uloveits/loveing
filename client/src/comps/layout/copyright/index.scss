@@ -1,0 +1,21 @@
+@import "../../../public/css/mixin";
+@import "../../../public/css/base";
+
+.footer {
+  background: #F5F5F5;
+  color: #999999;
+  font-size: 24px;
+  text-align: center;
+  padding: 20px;
+}
+
+.footer_fixed-bottom {
+  position: fixed;
+  bottom: 60px;
+  left: 0;
+  right: 0;
+}
+
+.footer__text {
+  font-size: 24px;
+}

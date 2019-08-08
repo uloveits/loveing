@@ -1,0 +1,13 @@
+@import "./public/css/mixin";
+/* 改变主题变量，具体变量名可查看 taro-ui/dist/style/variables/default.scss 文件 */
+$color-brand: $color-primary;
+/* 引入 Taro UI 默认样式 */
+@import "~taro-ui/dist/style/index.scss";
+@import "./public/css/base";
+@import "./public/css/iconfont";
+@import "./public/css/animation";
+
+
+page {
+  background: #ECECEC;
+}

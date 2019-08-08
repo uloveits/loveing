@@ -1,0 +1,34 @@
+
+page {
+  overflow-y: hidden;
+}
+.left_dialog {
+  position: absolute;
+  top: 25%;
+  left: -10px;
+}
+
+.right_dialog {
+  position: absolute;
+  top: 25%;
+  right: -10px;
+}
+
+.fixed-bottom {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  right: 20px;
+  .bgWhite {
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+  }
+}
+
+.at-input input {
+  padding: 8px;
+}
+
+.at-load-more {
+  height: 37Px;
+}

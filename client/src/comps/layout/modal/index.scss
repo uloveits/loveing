@@ -1,0 +1,7 @@
+@import "../../../public/css/mixin";
+@import "../../../public/css/base";
+
+.at-modal__content  {
+  min-height: auto ! important;
+  font-size: $text-xxl;
+}

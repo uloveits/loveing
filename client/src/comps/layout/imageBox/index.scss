@@ -1,0 +1,13 @@
+@import "~taro-ui/dist/style/components/flex.scss";
+@import "../../../public/css/mixin";
+@import "../../../public/css/base";
+
+.image-box{
+  background-color: white;
+
+  .image-title{
+    margin-top: 3px;
+    font-size: 28px;
+  }
+
+}

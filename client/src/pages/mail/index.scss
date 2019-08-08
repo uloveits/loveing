@@ -1,0 +1,32 @@
+
+.floatFab {
+  position: fixed;
+  bottom: 50px;
+  right: 30px;
+}
+.zipCode {
+  width: 35px;
+  height: 35px;
+  line-height: 35px;
+  border-radius: 10px;
+}
+
+.stamp {
+  width: 180px;
+  height: 120px;
+  line-height: 120px;
+}
+
+.stampImg {
+  left: 0;
+  right: 0;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+image {
+  height: 100px;
+}
+
+

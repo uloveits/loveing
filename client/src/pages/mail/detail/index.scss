@@ -1,0 +1,33 @@
+
+page {
+  overflow-y: hidden;
+}
+
+
+.at-input input {
+  padding: 8px;
+}
+
+.at-textarea {
+  border: none;
+}
+
+.zipCode {
+  width: 50px;
+  height: 50px;
+  line-height: 50px;
+}
+
+.stamp {
+  width: 180px;
+  height: 120px;
+  line-height: 120px;
+}
+
+.stampImg {
+  left: 0;
+  right: 0;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+}

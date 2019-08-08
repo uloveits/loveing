@@ -1,0 +1,15 @@
+@import "../../../../public/css/mixin";
+@import "../../../../public/css/base";
+.index {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+.vertical {
+  width:1rpx;
+  height:100%;
+  background:#EDEDED;
+  padding:0;
+  position:absolute;
+  left:49%;
+}

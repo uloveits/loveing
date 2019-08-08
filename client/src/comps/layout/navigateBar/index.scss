@@ -1,0 +1,14 @@
+@import "~taro-ui/dist/style/components/flex.scss";
+@import "../../../public/css/mixin";
+@import "../../../public/css/base";
+
+
+.navigateBar {
+  background: $color-ec;
+}
+.img-icon {
+  width: 80px;
+}
+.img-text {
+  width: 128px;
+}

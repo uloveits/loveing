@@ -1,0 +1,17 @@
+@import "~taro-ui/dist/style/components/flex.scss";
+@import "../../../public/css/mixin";
+@import "../../../public/css/base";
+
+.searchBar {
+  padding: 10px;
+}
+
+.border {
+  border-radius: 30px;
+  border: 1px solid $color-primary;
+}
+.border-left {
+  padding-top: 10px;
+  border-top-right-radius: 30px;
+  border-bottom-right-radius: 30px;
+}

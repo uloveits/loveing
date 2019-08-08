@@ -1,0 +1,30 @@
+@import "../../public/css/mixin";
+
+page {
+  background: $color-ec;
+}
+.iconSize {
+  width: 110px;
+  height: 110px;
+}
+
+.gif-wave {
+  position: absolute;
+  width: 100%;
+  bottom: 0px;
+  left: 0px;
+  z-index: 99;
+  mix-blend-mode: screen;
+  height: 100px;
+}
+.image {
+  width: 32Px;
+}
+
+.order{
+  height: 20px;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+  box-shadow:0 0 10px rgba(0, 0, 0, 0.1);
+}
+
