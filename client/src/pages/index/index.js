@@ -34,28 +34,31 @@ export default class Index extends Component {
       isBind:true,
       together:'',
       count:{},
+      flag:{},
     }
   }
 
 
   componentDidMount () {
-    this.getTogether()
-    this.getCount()
+    this.getTogether();
+    this.getCount();
+    this.getFlag();
   }
 
   componentDidShow () {
     const {auth} = this.props;
-    if(!auth.check({block: true}))return;
-    if(!this.props.auth.user.bindId || this.props.auth.bindUser === 0){
+   //if(!auth.check({block: true}))return;
+    console.log('componentDidShow')
+    console.log(auth)
+    if(!auth.user.bindId || auth.bindUser === 0){
       this.checkBind();
     }
-
   }
 
   //下来刷新
   onPullDownRefresh() {
-    this.getTogether()
-    this.getCount()
+    this.getTogether();
+    this.getCount();
     Taro.stopPullDownRefresh();
   }
 
@@ -66,10 +69,9 @@ export default class Index extends Component {
 
     }
     const {auth} = this.props;
-    console.log(auth);
     return {
       title: '绑定邀请',
-      path: '/pages/share/index?shareId=' + auth.user.id + '&avatar=' + auth.user.avatarUrl + '&name='+auth.user.nickName,
+      path: '/pages/share/index?shareId=' + auth.user._id + '&avatar=' + auth.user.avatarUrl + '&name='+auth.user.nickName,
       success: function (res) {
         console.log('成功', res)
       }
@@ -79,6 +81,7 @@ export default class Index extends Component {
   //判断有没有绑定恋爱关系
   checkBind = async () => {
     const { auth } = this.props;
+    if(!auth.user)return
     let res = await auth.checkBindInfo();
     console.log(res)
     if(!res.user.bindId){
@@ -101,6 +104,14 @@ export default class Index extends Component {
     })
   };
 
+  getFlag = async () => {
+    let res = await commonApi.flag({});
+    console.log('getFlag');
+    console.log(res);
+    this.setState({
+      flag:res[0]
+    })
+  }
 
   getCount = async () => {
     const { auth } = this.props;
@@ -123,6 +134,9 @@ export default class Index extends Component {
 
   //跳转页面
   goView = (type) => {
+    const {auth} = this.props;
+    if(!auth.check({block: true}))return;
+
     if(!this.state.isBind){
       Tips.toast('请先绑定另一半哦')
     }
@@ -141,7 +155,7 @@ export default class Index extends Component {
   }
 
   render () {
-    const { isBind,together,count } = this.state;
+    const { isBind,together,count,flag } = this.state;
     const { auth } = this.props;
     const { user, bindUser } = auth
     return (
@@ -237,67 +251,79 @@ export default class Index extends Component {
                 </View>
               </View>
             </View>
-            <View className='at-col-6'>
-              <View className='pr10 pt20' onClick={this.goView.bind(this,'mail')}>
-                <View className='at-row at-row__align--center bgWhite card shadow-lg'>
-                  <View className='at-col-7'>
-                    <View className='pd20'>
-                      <View className='pd10'>
-                        <Text className='lg font-weight'>爱情邮箱</Text>
-                      </View>
-                      <View className='pd10'>
-                        <Text className='xxl major font-weight pr10'>{count.mail}</Text>
-                        <Text className='lg weak'>封</Text>
+            {
+              flag.mail === 1 &&
+              <View className='at-col-6'>
+                <View className='pr10 pt20' onClick={this.goView.bind(this,'mail')}>
+                  <View className='at-row at-row__align--center bgWhite card shadow-lg'>
+                    <View className='at-col-7'>
+                      <View className='pd20'>
+                        <View className='pd10'>
+                          <Text className='lg font-weight'>爱情邮箱</Text>
+                        </View>
+                        <View className='pd10'>
+                          <Text className='xxl major font-weight pr10'>{count.mail}</Text>
+                          <Text className='lg weak'>封</Text>
+                        </View>
                       </View>
                     </View>
-                  </View>
-                  <View className='at-col-5 text-center'>
-                    <Image className='iconSize' src={mail}/>
+                    <View className='at-col-5 text-center'>
+                      <Image className='iconSize' src={mail}/>
+                    </View>
                   </View>
                 </View>
               </View>
-            </View>
-            <View className='at-col-6'>
-              <View className='pl10 pt20' onClick={this.goView.bind(this,'photo')}>
-                <View className='at-row at-row__align--center bgWhite card shadow-lg'>
-                  <View className='at-col-7'>
-                    <View className='pd20'>
-                      <View className='pd10'>
-                        <Text className='lg font-weight'>共享相册</Text>
-                      </View>
-                      <View className='pd10'>
-                        <Text className='xxl major font-weight pr10'>{count.photo}</Text>
-                        <Text className='lg weak'>张</Text>
+            }
+            {
+              flag.photo === 1 &&
+              <View className='at-col-6'>
+                <View className='pl10 pt20' onClick={this.goView.bind(this,'photo')}>
+                  <View className='at-row at-row__align--center bgWhite card shadow-lg'>
+                    <View className='at-col-7'>
+                      <View className='pd20'>
+                        <View className='pd10'>
+                          <Text className='lg font-weight'>共享相册</Text>
+                        </View>
+                        <View className='pd10'>
+                          <Text className='xxl major font-weight pr10'>{count.photo}</Text>
+                          <Text className='lg weak'>张</Text>
+                        </View>
                       </View>
                     </View>
-                  </View>
-                  <View className='at-col-5 text-center'>
-                    <Image className='iconSize' src={photo}/>
+                    <View className='at-col-5 text-center'>
+                      <Image className='iconSize' src={photo}/>
+                    </View>
                   </View>
                 </View>
               </View>
-            </View>
+            }
+            {
+              flag.travel === 1 &&
+              <View className='at-col-6'>
+                <View className='pr10 pt20' onClick={this.goView.bind(this,'travel')}>
+                  <View className='at-row at-row__align--center bgWhite card shadow-lg'>
+                    <View className='at-col-7'>
+                      <View className='pd20'>
+                        <View className='pd10'>
+                          <Text className='lg font-weight'>旅游足迹</Text>
+                        </View>
+                        <View className='pd10'>
+                          <Text className='xxl major font-weight pr10'>{count.travel}</Text>
+                          <Text className='lg weak'>个</Text>
+                        </View>
+                      </View>
+                    </View>
+                    <View className='at-col-5 text-center'>
+                      <Image className='iconSize' src={travel}/>
+                    </View>
+                  </View>
+                </View>
+              </View>
+            }
 
-            <View className='at-col-6'>
-              <View className='pr10 pt20' onClick={this.goView.bind(this,'travel')}>
-                <View className='at-row at-row__align--center bgWhite card shadow-lg'>
-                  <View className='at-col-7'>
-                    <View className='pd20'>
-                      <View className='pd10'>
-                        <Text className='lg font-weight'>旅游足迹</Text>
-                      </View>
-                      <View className='pd10'>
-                        <Text className='xxl major font-weight pr10'>{count.travel}</Text>
-                        <Text className='lg weak'>个</Text>
-                      </View>
-                    </View>
-                  </View>
-                  <View className='at-col-5 text-center'>
-                    <Image className='iconSize' src={travel}/>
-                  </View>
-                </View>
-              </View>
-            </View>
+
+
+
           </View>
         </View>
 

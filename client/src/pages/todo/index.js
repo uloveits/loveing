@@ -228,7 +228,6 @@ export default class TodoPage extends Component {
           </View>
         }
 
-
         {
           todo.length === 0 &&
           <View className='pd20'>

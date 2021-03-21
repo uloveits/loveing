@@ -32,6 +32,7 @@ auth.check = function(param = {block: false, redirect: false}) {
 };
 
 auth.checkBindInfo = async function(param) {
+
   const res = await authApi.checkBindInfo(param);
 
   this.saveUser(res.user);

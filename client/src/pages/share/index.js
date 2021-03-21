@@ -34,6 +34,11 @@ export default class SharePage extends Component {
   agree = async ()=>{
     const { auth } = this.props;
     const { shareId } = this.$router.params;
+
+    console.log('绑定关系');
+    console.log(shareId);
+    console.log(this.$router);
+
     if(auth.user._id === shareId){
       Tips.toast('您不能和自己绑定关系哦')
       return;
@@ -63,7 +68,6 @@ export default class SharePage extends Component {
     const { name , avatar} = this.$router.params;
     return (
       <View className='index'>
-
         <View className='text-center pd20 mt60'>
           <Image className='avatar-normal'  src={avatar} />
         </View>

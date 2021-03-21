@@ -42,9 +42,17 @@ export default class MailPage extends Component {
     this.getMail(true)
   }
 
+  onReachBottom() {
+    this.setState({
+      loading:true
+    },()=>{
+      this.getMail(false)
+    })
+  }
+
   //下来刷新
   onPullDownRefresh() {
-    this.getMail(true)
+    this.getMail(true);
     Taro.stopPullDownRefresh();
   }
 
@@ -99,8 +107,6 @@ export default class MailPage extends Component {
   goDetail = (item)=> {
     Routes.toMailDetail({id:item._id})
   }
-
-
 
 
   render () {
@@ -160,6 +166,15 @@ export default class MailPage extends Component {
                 }
               </View>
             </View>
+        }
+
+        {
+          mail.length > 0 &&
+          <View>
+            {
+              loading && <AtLoadMore status='loading' />
+            }
+          </View>
         }
 
 

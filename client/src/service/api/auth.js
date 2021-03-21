@@ -54,6 +54,7 @@ export default class authApi extends base {
     let res = await Taro.cloud.callFunction({name: "checkSameUser", data: {}});
 
     user = res.result.data[0];
+    console.log(res)
 
     if(user.bindId){
       console.log(user.bindId);

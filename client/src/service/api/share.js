@@ -16,7 +16,7 @@ export default class shareApi extends base {
 
     //判定是否绑定关系
     let isBind = await this.checkSameUser();
-
+    console.log('判定是否绑定关系'  + isBind)
     if(isBind){
       return {
         msg:'您已经绑定过情侣关系了'
@@ -31,7 +31,9 @@ export default class shareApi extends base {
         bindId:param.bindId
       }
     };
+    console.log('aaaaa');
     let bindMe = await Taro.cloud.callFunction({name: "collection", data: {$url: paramMe.method,...paramMe}});
+    console.log('bindMe');
     console.log(bindMe);
 
     let paramTa = {
@@ -43,6 +45,7 @@ export default class shareApi extends base {
       }
     };
     let bindTa = await Taro.cloud.callFunction({name: "collection", data: {$url: paramTa.method,...paramTa}});
+    console.log('bindTa');
     console.log(bindTa);
     if(bindMe.errMsg === 'cloud.callFunction:ok' && bindTa.errMsg === 'cloud.callFunction:ok'){
       return {

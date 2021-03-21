@@ -106,4 +106,14 @@ export default class commonApi extends base {
     }
   }
 
+  /**
+   * 获取各种flag
+   * @param param
+   * @returns {Promise<void>}
+   */
+  static async flag(param) {
+    let res = await Taro.cloud.callFunction({name: "getFlag", data: {...param}});
+    return res.result.data;
+  }
+
 }

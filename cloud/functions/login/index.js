@@ -17,7 +17,7 @@ exports.main = async (event) => {
     };
     if(event.id){
         return await db.collection('user').doc(event.id).update({
-            data: param
+            data: {...param}
         })
     }else{
         return await db.collection('user').add({
