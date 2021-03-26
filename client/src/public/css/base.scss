@@ -206,7 +206,16 @@ video {
   margin: 0px;
   padding: 0px;
 }
+
 .at-switch:after{
   display: none;
+}
+
+.fb-icon {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  line-height: 100px;
+  text-align: center;
 }
 

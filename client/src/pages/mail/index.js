@@ -1,6 +1,6 @@
 import Taro, { Component } from '@tarojs/taro'
 import { View, Text } from '@tarojs/components'
-import {AtLoadMore,AtFab} from 'taro-ui'
+import {AtLoadMore} from 'taro-ui'
 import { observer, inject } from '@tarojs/mobx'
 import './index.scss'
 import KtSeparator from "../../comps/layout/separator";
@@ -180,9 +180,9 @@ export default class MailPage extends Component {
 
         {/*浮动添加按钮*/}
         <View className='floatFab'>
-          <AtFab size='normal' onClick={this.isPlus.bind(this)}>
-            <Text className='at-fab__icon at-icon at-icon-add'></Text>
-          </AtFab>
+          <View className='bg-gradual-green fb-icon'  onClick={this.isPlus.bind(this)}>
+            <Text className='at-icon at-icon-add'></Text>
+          </View>
         </View>
 
       </View>

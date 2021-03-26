@@ -1,6 +1,6 @@
 import Taro, { Component } from '@tarojs/taro'
-import { View,Image} from '@tarojs/components'
-import { AtFab,AtActionSheet,AtActionSheetItem } from 'taro-ui'
+import { View,Image,Text} from '@tarojs/components'
+import { AtActionSheet,AtActionSheetItem } from 'taro-ui'
 
 import { observer, inject } from '@tarojs/mobx'
 import './index.scss'
@@ -172,9 +172,9 @@ export default class TravelPage extends Component {
 
         {/*浮动添加按钮*/}
         <View className='floatFab'>
-          <AtFab size='normal' onClick={this.isPlus.bind(this)}>
-            <Text className='at-fab__icon at-icon at-icon-add'></Text>
-          </AtFab>
+          <View className='bg-gradual-green fb-icon'  onClick={this.isPlus.bind(this)}>
+            <Text className='at-icon at-icon-add'></Text>
+          </View>
         </View>
       </View>
     )

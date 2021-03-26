@@ -256,9 +256,9 @@ export default class RememberPage extends Component {
 
         {/*浮动添加按钮*/}
         <View className='floatFab'>
-          <AtFab size='normal' onClick={this.isPlus.bind(this,this.state.param)}>
-            <Text className='at-fab__icon at-icon at-icon-add'></Text>
-          </AtFab>
+          <View className='bg-gradual-green fb-icon'  onClick={this.isPlus.bind(this,this.state.param)}>
+            <Text className='at-icon at-icon-add'></Text>
+          </View>
         </View>
         {/*添加纪念日*/}
         <AtFloatLayout isOpened={isShowPlus} title='添加纪念日' onClose={this.isShowPlusClose.bind(this)}>

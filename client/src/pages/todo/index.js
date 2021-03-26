@@ -1,12 +1,11 @@
 import Taro, { Component } from '@tarojs/taro'
 import { View, Text } from '@tarojs/components'
-import {AtFloatLayout,AtInput,AtIcon,AtButton,AtFab,AtLoadMore} from 'taro-ui'
+import {AtFloatLayout,AtInput,AtIcon,AtButton,AtLoadMore} from 'taro-ui'
 import { observer, inject } from '@tarojs/mobx'
 import './index.scss'
 import KtSeparator from "../../comps/layout/separator";
 import CommonFnc from "../../utils/commonFnc";
 
-import todoApi from "../../service/api/todo";
 import KtLoadMore from "../../comps/layout/load/more";
 import Routes from "../../utils/route";
 import commonApi from "../../service/api/common";
@@ -249,9 +248,9 @@ export default class TodoPage extends Component {
 
         {/*浮动添加按钮*/}
         <View className='floatFab'>
-          <AtFab size='normal' onClick={this.isPlus.bind(this,this.state.param)}>
-            <Text className='at-fab__icon at-icon at-icon-add'></Text>
-          </AtFab>
+          <View className='bg-gradual-green fb-icon'  onClick={this.isPlus.bind(this,this.state.param)}>
+            <Text className='at-icon at-icon-add'></Text>
+          </View>
         </View>
 
         {/*添加愿望*/}
